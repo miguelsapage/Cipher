@@ -1,5 +1,6 @@
 from graphics import *
 from button import Button
+from pyperclip import copy
 
 class Save:
 	def __init__(self):
@@ -26,3 +27,10 @@ class Save:
 			elif self.both.clicked(click):
 				self.win.close()
 				return 'both'
+
+	def copy_to_clipboar(self, result):
+		copy(result)
+
+	def save_to_file(self, result):
+		with open('Messages.txt', 'a') as file:
+			file.write(result + '\n')

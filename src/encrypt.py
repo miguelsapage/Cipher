@@ -1,3 +1,5 @@
+from random import randrange
+
 class Encrypt:
 	def __init__(self, msg):
 		self.msg = msg
@@ -16,6 +18,6 @@ class Encrypt:
 		elif 48 <= ord(character) <= 57:
 			return chr((ord(character) + shift - 48) % 10 + 48)
 		elif ord(character) == 32:
-			return chr(37)
+			return chr(randrange(35, 39))
 		else:
 			return character

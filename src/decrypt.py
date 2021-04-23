@@ -15,7 +15,7 @@ class Decrypt:
 			return chr(- (ord(character) - 78) + 77)
 		elif 48 <= ord(character) <= 57:
 			return chr((ord(character) - shift - 48) % 10 + 48)
-		elif ord(character) == 37:
+		elif 35 <= ord(character) <= 38:
 			return chr(32)
 		else:
 			return character

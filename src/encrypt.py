@@ -5,12 +5,14 @@ class Encrypt:
 		self.msg = msg
 
 	def output_msg(self):
+		#Puts the result together
 		encrypted = ''
 		for character in self.msg:
 			encrypted += self.encrypt_msg(character)
 		return encrypted
 
 	def encrypt_msg(self, character, shift = 3):
+		#Handles each character
 		if 97 <= ord(character) <= 122:
 			return chr(- (ord(character) - 110) + 109)
 		elif 65 <= ord(character) <= 90:

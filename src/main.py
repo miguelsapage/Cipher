@@ -1,5 +1,8 @@
 """
-This program is a simple encryption tool
+This program is a simple encryption tool.
+The encryption is made by mirroring the letters on the alphabet and
+shifting the numbers by some quantity (3 by default). Spaces translate
+to %, $, # or &. Other characters remain the same.
 
 Author: Miguel Sapage
 """
@@ -10,13 +13,13 @@ from decrypt import Decrypt
 from choice import Choice
 
 def main():
-	choose = Choice()
+	choose = Choice() #Encrypt or decrypt
 	choice = choose.interact()
 
 	if choice == 'encrypt':
 		msg = input('Message to encrypt: ')
 
-		save = Save()
+		save = Save() #Copy to clipboard, save to text file pr both
 		save_choice = save.interact()
 
 		encrypt = Encrypt(msg)

@@ -4,6 +4,7 @@ from pyperclip import copy
 
 class Save:
 	def __init__(self):
+		#GUI to choose how to save the encrypted text
 		self.win = GraphWin('Save', 200, 200)
 		Text(Point(100, 30), 'How do you want to').draw(self.win)
 		Text(Point(100, 45), 'save the message?').draw(self.win)
@@ -32,5 +33,6 @@ class Save:
 		copy(result)
 
 	def save_to_file(self, result):
+		#File will be created on same directory as source code
 		with open('Messages.txt', 'a') as file:
-			file.write(result + '\n')
+			file.write(result + '\n') #Each new message will be written to new line

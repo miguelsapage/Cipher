@@ -3,6 +3,7 @@ from button import Button
 
 class Choice:
 	def __init__(self):
+		#GUI to choose encryption or decryption
 		self.win = GraphWin('Choice', 150, 100)
 
 		self.encrypt = Button(self.win, Point(75, 32), 75, 25, 'Encrypt')

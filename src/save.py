@@ -1,6 +1,8 @@
 from graphics import *
 from button import Button
 from pyperclip import copy
+from easygui import diropenbox
+from pathlib import Path
 
 class Save:
 	def __init__(self):
@@ -33,6 +35,19 @@ class Save:
 		copy(result)
 
 	def save_to_file(self, result):
-		#File will be created on same directory as source code
-		with open('Messages.txt', 'a') as file:
-			file.write(result + '\n') #Each new message will be written to new line
+		#The user choose where to save the file
+		if Path('path.txt').is_file():
+			with open('path.txt', 'r') as path_file:
+				path = path_file.read()
+			path_file.close()
+			with open(path + '/Messages.txt', 'a') as file:
+				file.write(result + '\n') #Each new message will be written to new line
+			file.close()
+		else:
+			path = diropenbox()
+			with open('path.txt', 'w') as path_file:
+				path_file.write(path)
+			path_file.close()
+			with open(path + '/Messages.txt', 'a') as file:
+				file.write(result + '\n')
+			file.close()

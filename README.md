@@ -9,5 +9,5 @@ Every other character remains the same.
 ## Save encrypted text
 The user can save the encrypted text to the clipboard, to a file or both, to be sent later if needed.
 
-## Modules
-The program uses **graphics.py** and **button.py** from John M. Zelle. (Function added to button.py). In addition it uses the module **pyperclip** from Al Sweigart.
+## External modules
+The program uses **graphics.py** and **button.py** from John M. Zelle. (Function added to button.py). In addition it uses the module **pyperclip** from Al Sweigart and the module **easygui**.

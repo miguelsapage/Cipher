@@ -7,7 +7,7 @@ to %, $, # or &. Other characters remain the same.
 Author: Miguel Sapage
 """
 
-from save import Save
+from save import *
 from encrypt import Encrypt
 from decrypt import Decrypt
 from choice import Choice
@@ -19,7 +19,7 @@ def main():
 	if choice == 'encrypt':
 		msg = input('Message to encrypt: ')
 
-		save = Save() #Copy to clipboard, save to text file pr both
+		save = SaveEncryption() #Copy to clipboard, save to text file or both
 		save_choice = save.interact()
 
 		encrypt = Encrypt(msg)
@@ -38,6 +38,7 @@ def main():
 		decrypt = Decrypt(encrypted_msg)
 		decrypted_msg = decrypt.output_msg()
 
-		print(decrypted_msg)
+		save = SaveDecryption(decrypted_msg)
+		save.save_to_hidden_file()
 
 main()

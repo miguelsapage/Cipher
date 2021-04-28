@@ -3,8 +3,10 @@ from button import Button
 from pyperclip import copy
 from easygui import diropenbox
 from pathlib import Path
+from datetime import datetime
+from os import system
 
-class Save:
+class SaveEncryption:
 	def __init__(self):
 		#GUI to choose how to save the encrypted text
 		self.win = GraphWin('Save', 200, 200)
@@ -47,7 +49,27 @@ class Save:
 			path = diropenbox()
 			with open('path.txt', 'w') as path_file:
 				path_file.write(path)
-			path_file.close()
 			with open(path + '/Messages.txt', 'a') as file:
 				file.write(result + '\n')
-			file.close()
+
+class SaveDecryption:
+	def __init__(self, result):
+		self.result = result
+
+	def save_to_hidden_file(self):
+		#Save to hidden file in location of users choice
+		path = diropenbox()
+		now = self.now_time()
+		with open(path + '\\' + now + '.txt', 'w') as file:
+			file.write(self.result)
+		system('attrib +h ' + '"' + file.name + '"')
+
+	def now_time(self):
+		#Formats the file name
+		now_str = str(datetime.now())[:19]
+		date_list = list(now_str.replace(':', ""))
+		date_list.insert(13, 'h')
+		date_list.insert(16, 'm')
+		date_list.insert(19, 's')
+		now = ''.join(date_list)
+		return now
